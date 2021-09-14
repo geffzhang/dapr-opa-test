@@ -5,5 +5,7 @@ metadata:
 spec:
   httpPipeline:
     handlers:
+    - name: uppercase
+      type: middleware.http.uppercase
     - name: poc-opa
       type: middleware.http.opa

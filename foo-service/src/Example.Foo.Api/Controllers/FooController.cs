@@ -9,6 +9,8 @@ namespace Example.Foo.Api.Controllers
     [ApiController]
     public class FooCommandApiController : ControllerBase
     {
+        public record Echo(string Message);
+
         private readonly DaprClient daprClient;
 
         public FooCommandApiController(DaprClient daprClient)
@@ -17,9 +19,9 @@ namespace Example.Foo.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<object> GetBar()
+        public async Task<object> GetBar(Echo echo)
         {
-            return await daprClient.InvokeMethodAsync<string, object>("bar-service", "bar", "");
+            return await daprClient.InvokeMethodAsync<Echo, object>("bar-service", "bar", echo);
         }
     }
 }
