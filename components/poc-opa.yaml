@@ -1,0 +1,13 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: poc-opa
+spec:
+  type: middleware.http.opa
+  version: v1
+  metadata:
+    - name: rego
+      value: |
+        package http
+
+        default allow = false

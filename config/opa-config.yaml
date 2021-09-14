@@ -1,0 +1,9 @@
+apiVersion: dapr.io/v1alpha1
+kind: Configuration
+metadata:
+  name: bar-config
+spec:
+  httpPipeline:
+    handlers:
+    - name: poc-opa
+      type: middleware.http.opa

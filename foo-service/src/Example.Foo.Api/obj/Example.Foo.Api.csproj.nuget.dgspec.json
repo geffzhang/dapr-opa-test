@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/nstrause/dev/sandbox/dapr-opa-test/foo-service/src/Example.Foo.Api/Example.Foo.Api.csproj": {}
+  },
+  "projects": {
+    "/home/nstrause/dev/sandbox/dapr-opa-test/foo-service/src/Example.Foo.Api/Example.Foo.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nstrause/dev/sandbox/dapr-opa-test/foo-service/src/Example.Foo.Api/Example.Foo.Api.csproj",
+        "projectName": "Example.Foo.Api",
+        "projectPath": "/home/nstrause/dev/sandbox/dapr-opa-test/foo-service/src/Example.Foo.Api/Example.Foo.Api.csproj",
+        "packagesPath": "/home/nstrause/.nuget/packages/",
+        "outputPath": "/home/nstrause/dev/sandbox/dapr-opa-test/foo-service/src/Example.Foo.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nstrause/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://artifactory.glhec.org/artifactory/api/nuget/nuget": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "Dapr.AspNetCore": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

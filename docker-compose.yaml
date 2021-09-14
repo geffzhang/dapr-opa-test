@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+
+  ###
+  # Common
+  ###
+
+  placement:
+    image: "daprio/dapr"
+    command: ["./placement", "-port", "50006"]
+    ports:
+      - "50006:50006"
+
+  ###
+  # Foo Service
+  ###
+
+  foo-service:
+    image: foo-service:latest
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+
+  foo-service-sidecar:
+    image: "daprio/daprd:1.4.0-rc.7"
+    command: [
+      "./daprd",
+      "-app-id", "foo-service",
+      "-app-port", "8080",
+      "-components-path", "/components",
+      "-config", "/config/opa-config.yaml",
+      "-placement-host-address", "placement:50006",
+      "-log-level", "debug"
+    ]
+    volumes:
+      - "./components/:/components/"
+      - "./config/:/config/"
+    depends_on:
+      - placement
+      - foo-service
+    network_mode: "service:foo-service"
+
+  ###
+  # Bar Service
+  ###
+
+  bar-service:
+    image: bar-service:latest
+    ports:
+      - "8081:8081"
+    environment:
+      ASPNETCORE_URLS: http://+:8081
+
+  bar-service-sidecar:
+    image: "daprio/daprd:1.4.0-rc.7"
+    command: [
+      "./daprd",
+      "-app-id", "bar-service",
+      "-app-port", "8081",
+      "-components-path", "/components",
+      "-config", "/config/opa-config.yaml",
+      "-placement-host-address", "placement:50006",
+      "-log-level", "debug"
+    ]
+    volumes:
+      - "./components/:/components/"
+      - "./config/:/config/"
+    depends_on:
+      - bar-service
+      - placement
+    network_mode: "service:bar-service"
+
+  # opa:
+  #   image: "openpolicyagent/opa"
+  #   ports:
+  #     - "8181:8181"
+  #   command: ["run", "--server"]
